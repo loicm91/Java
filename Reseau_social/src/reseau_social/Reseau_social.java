@@ -23,17 +23,15 @@ public class Reseau_social {
     Identite personne1 = new Identite("Sergio", "26");    
     personne1.AfficherId();
     
-    char reponse = 'O';// char avec une Lettre entre ''
     Scanner sc = new Scanner(System.in);
     ArrayList<String> messageList = new ArrayList<String>();
     ArrayList<String> amiList = new ArrayList<String>();
-        while (reponse == 'O'){
  
                 String choix;
                 boolean logout = false; //taper entrer pour quitter
                 while (!(logout)){
                     
-                    System.out.println("Que souhaitiez-vous faire? \n Taper 'entrer' pour quitter");
+                    System.out.println("Que souhaitiez-vous faire? \n (Taper 'entrer' pour quitter)");
                     System.out.println("Mon profil");
                     System.out.println("Modifier");
                     System.out.println("Nouveau message");
@@ -84,8 +82,6 @@ public class Reseau_social {
 
                      } 
                 } 
-           
-        }
         System.out.println("Au revoir");
     
     }
