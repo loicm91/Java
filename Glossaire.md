@@ -8,6 +8,8 @@ Le constructeur est une méthode d'instance qui va se charger de créer un objet
 le cas échéant, d'initialiser ses variables de classe ! Cette méthode a pour rôle de signaler à la JVM (Java Virtual Machine) 
 qu'il faut réserver de la mémoire pour notre futur objet et donc, par extension, d'en réserver pour toutes ses variables.
 
+Exemple :
+
 ```
 public class Ville {
  
@@ -40,4 +42,25 @@ public class Ville {
 ##Javadoc :
 La Javadoc permet en commentant son code, de pouvoir le partager à d'autres personnes avec des instructions et des définitions qui facilitent la compréhension du programme/projet.
 
-====>["Javadoc OpenClassRooms"](https://openclassrooms.com/courses/presentation-de-la-javadoc)
+====>[Javadoc OpenClassRooms](https://openclassrooms.com/courses/presentation-de-la-javadoc)
+
+Exemple : 
+
+```
+ /**
+    *Constructeur
+    * Rempli les champs prénom et âge de l'utilisateur
+    * @param pPrenom 
+    *   correspond au prénom 
+    * @param pAge 
+    *   correspond à l'age
+    */ 
+    public Identite(){
+        
+    }
+    
+    public Identite(String pPrenom, String pAge){ 
+        prenom = pPrenom;
+        age = pAge;
+    }
+```
