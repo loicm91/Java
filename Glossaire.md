@@ -73,3 +73,22 @@ Exemple :
 Ainsi, grâce aux accesseurs (getter et setter), on passe les données entrées dans des méthodes qui les vérifient.
 
 Aussi pour éviter de tout changer, on va solliciter la "modularisation", qui permet de faire de modifications indépendantes.
+
+## Héritage
+La notion d'héritage est un des fondements de la programmation orienté objet. On peut créer des classes héritées qui vont prendre toutes les propriétés des classes mères. Autrement dit, elle va hériter du comportement de sa mère.
+Tout ça grâce à "extends" et peut aussi faire appel aux variables de la classe mère dans nos constructeurs grâce au mot clé "super": 
+
+```
+class Capitale extends Ville {
+ 
+  private String monument;
+ 
+  //Constructeur par défaut
+  public Capitale(){
+    //Ce mot clé appelle le constructeur de la classe mère  
+    super();
+    monument = "aucun";
+  }
+}
+```
+
