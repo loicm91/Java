@@ -93,4 +93,6 @@ class Capitale extends Ville {
 ```
 
 ## Void :
-Utiliser dans la déclaration d'une méthode qui ne renvoi rien.
+Ce mot clé est utilisé dans la déclaration d'une méthode qui ne renvoi rien.
+Contrairement à "String" ou "int"...
+
