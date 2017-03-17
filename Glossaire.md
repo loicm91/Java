@@ -96,3 +96,21 @@ class Capitale extends Ville {
 Ce mot clé est utilisé dans la déclaration d'une méthode qui ne renvoi rien.
 Contrairement à "String" ou "int"...
 
+## Les Exceptions :
+Une Exception est une classe de Java qui est appelée lorsqu'il y a une erreur dans le programme ou une donnée qui n'est pas autorisée.
+Pour gérer les exceptions il faut les "attraper" avec le bloc "Try and Catch"
+
+Exemple :
+
+```
+public static void main(String[] args) {
+                
+  int j = 20, i = 0;
+  try {
+    System.out.println(j/i);
+  } catch (ArithmeticException e) {
+    System.out.println("Division par zéro !");
+  }
+  System.out.println("coucou toi !");
+}
+```
