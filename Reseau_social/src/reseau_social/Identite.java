@@ -17,28 +17,67 @@ import java.util.Scanner;
 public class Identite {
 
 //Attributs
-    String prenom;
-    String age;
-    ArrayList<String> messageList = new ArrayList<String>();
-     ArrayList<String> amiList = new ArrayList<String>();
+    protected String prenom;
+    protected int age;
+    protected int level = 0;
+    
+    
+    ArrayList<String> allMessages = new ArrayList<String>(); 
+    ArrayList<String> amiList = new ArrayList<String>();
+    ArrayList<String> listMessage = new ArrayList<String>();
+    //Pour récupérer les infos on doit stocker des objets, pour accéder à ses infos
+    ArrayList<Identite> listUsers = new ArrayList<Identite>();
 
+ 
     /**
     *Constructeur
     * Rempli les champs prénom et âge de l'utilisateur
-    * @param val1 
+    * @param pPrenom 
     *   correspond au prénom 
-    * @param val2 
+    * @param pAge 
     *   correspond à l'age
     */ 
-    public Identite(String val1, String val2){ 
-        prenom = val1;
-        age = val2;
+    public Identite(){
+        
+    }
+    
+    public Identite(String pPrenom, int pAge)  
+        
+        throws AgeIdentiteException{
+                {
+                    if(pAge < 0)
+                        throw new AgeIdentiteException();
+                    else
+                    { 
+                        
+                        prenom = pPrenom;
+                        age = pAge;
+                        this.setListUsers(listUsers);
+                    }
+                }
+        
     }
     
     //Methode
-    public void AfficherId(){
+    public void createUser(Scanner sc){
+        
+       //Le bloc Try/catch interdit de mettre un âge négatif  
+       try{
+           
        System.out.println("Veuillez saisir un prénom et un nom : ");
+       prenom = sc.nextLine();
        System.out.println("Bonjour " + prenom + "!");
+       System.out.println("Quel âge as-tu?");
+       age = sc.nextInt();
+       Identite user1 = new Identite(prenom, age);
+       this.getListUsers().add(user1);
+       System.out.println(getListUsers().size());  
+
+        } catch (AgeIdentiteException e){
+            
+        }
+       
+      
     }
     
     //*************   MUTATEURS   *************
@@ -51,21 +90,55 @@ public class Identite {
         this.prenom = prenom;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
-    public ArrayList<String> getMessageList() {
-        return messageList;
+    
+    
+    //USER
+    public ArrayList<Identite> getListUsers() {
+        return listUsers;
     }
 
-    public void setMessageList(ArrayList<String> messageList) {
-        this.messageList = messageList;
+    public void setListUsers(ArrayList<Identite> listUsers) {
+        this.listUsers = listUsers;
+    }
+    public int getLevel() {
+        return level;
     }
 
+    /**
+     *
+     * @param level correspond au level tapé par utilisateur
+     */
+ 
+    public void setLevel(int level) {
+        
+    } 
+    
+    //MESSAGES
+    public ArrayList<String> getAllMessages() {
+        return allMessages;
+    }
+
+    public void setAllMessages(ArrayList<String> allMessages) {
+        this.allMessages = allMessages;
+    }
+    
+    public ArrayList<String> getListMessage() {
+        return listMessage;
+    }
+
+    public void setListMessage(ArrayList<String> listMessage) {
+        this.listMessage = listMessage;
+    }
+    
+    
+    //AMI
     public ArrayList<String> getAmiList() {
         return amiList;
     }
@@ -74,10 +147,10 @@ public class Identite {
         this.amiList = amiList;
     }
     
-    public void display()
+    public String toString()
     {
         //personne1.getPrenom() et personne1.getAge() permet de récupérer les informations de la class Identite
-            System.out.println("Tu t'appelles " + getPrenom() + " et tu as " + getAge() + "ans.");
+       return ( "Tu t'appelles " + this.getPrenom() + " et tu as " + this.getAge() + "ans.");
     }
     
     public void update(Scanner sc)
@@ -90,16 +163,31 @@ public class Identite {
     
      public void createMessage(Scanner sc)
     {
-        System.out.println("Veuillez saisir un message");
+        System.out.println("Veuillez saisir un message :");
             String message = sc.nextLine();
-            getMessageList().add(message);
+            getListMessage().add(message);
             System.out.println(message);
-            System.out.println(getMessageList().size());
+            System.out.println(getListMessage().size());
     }
      
-     public void displayMessage()
+     public void updateMessage(Scanner sc)
+    {
+        System.out.println("Veuillez modifier votre message :");
+            String message = sc.nextLine();
+            getListMessage().add(message);
+            System.out.println(message);
+    }
+    
+    public void afficherMessages(String user)
+    {
+        for (String mess : getListMessage()){
+            System.out.println(mess);
+        }
+    }
+     
+     public void displayMessageUser()
      {
-          for (String mail : getMessageList()){
+          for (String mail : getListMessage()){
                  System.out.println(mail);
             }
      }
@@ -116,6 +204,13 @@ public class Identite {
      {
          for (String pote : getAmiList()){
                  System.out.println(pote);
+            }
+     }
+     
+    public void displayUsers()
+     {
+         for (Identite userList : getListUsers()){
+                 System.out.println(userList.getPrenom());
             }
      }
 }

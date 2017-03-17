@@ -5,7 +5,7 @@
  */
 package reseau_social;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 /**
@@ -19,27 +19,57 @@ public class Reseau_social {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    Scanner sc = new Scanner(System.in);
-        //Affiche L'identité depuis la class Identite
-    Identite personne1 = new Identite("Sergio", "26");    
-    personne1.AfficherId();
-    
-    
- 
+        
+  
+      int level = 0;
+      Scanner sc = new Scanner(System.in);
+      char reponse = 'O';
+      char answer = 'Y';
+      Menu displayMenu = new Menu();
+      
+      do
+      {         System.out.println("Êtes-vous modérateur? O/N");
+                sc = new Scanner(System.in);
+                reponse = sc.nextLine().charAt(0);
+                Identite personne1;
+                if (reponse == 'O'){
+
+                   System.out.println("Quel niveau êtes-vous? ");
+                   level = sc.nextInt();
+                   sc.nextLine();
+                   personne1 = new Moderateur(level); //On a un modérateur que l'on a casté
+                   System.out.println("Vous êtes un modérateur de niveau " + level);
+
+                }else{
+                    personne1 = new Identite();//On a un user simple
+                    System.out.println("Vous êtes un simple utilisateur");
+
+                }
                 
-                boolean logout = false; //taper entrer pour quitter
-                while (!(logout)){
-                    
-                    //Affiche le menu depuis une class Menu
-                    Menu displayMenu = new Menu();
-                    displayMenu.AfficherMenu();
-                    
-                    //Faire un choix
-                    logout = displayMenu.ChoixMenu(sc, personne1);
-                    
-                } 
-        System.out.println("Au revoir");
-    
+                do{
+                    personne1.createUser(sc);
+                    System.out.println("Créer un autre utilisateur ? (Y/N)");
+                    answer = sc.nextLine().charAt(0);
+                }
+                while (answer == 'Y');
+                
+                        boolean logout = false; //taper entrer pour quitter
+                        while (!(logout)){
+                            
+                            displayMenu.afficherMenu(personne1); //c'est le user créé qui accède au menu, d'où le personne1
+                          
+                            //Faire un choix dans le menu
+                            
+                            logout = displayMenu.ChoixMenu(sc, personne1);
+                        } 
+
+                
+                
+         }while(displayMenu.newUser(sc) == 'O' ); 
+         
+        
+                
+         System.out.println("Au revoir");
     }
     
 }
