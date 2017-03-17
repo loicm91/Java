@@ -37,3 +37,7 @@ public class Ville {
     nbreHabitants = pNbre;
   }        
 ```
+##Javadoc :
+La Javadoc permet en commentant son code, de pouvoir le partager à d'autres personnes avec des instructions et des définitions qui facilitent la compréhension du programme/projet.
+
+====>["Javadoc OpenClassRooms"](https://openclassrooms.com/courses/presentation-de-la-javadoc)
