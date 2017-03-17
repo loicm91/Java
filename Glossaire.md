@@ -92,3 +92,5 @@ class Capitale extends Ville {
 }
 ```
 
+## Void :
+Utiliser dans la déclaration d'une méthode qui ne renvoi rien.
