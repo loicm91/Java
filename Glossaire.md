@@ -44,6 +44,9 @@ La Javadoc permet en commentant son code, de pouvoir le partager à d'autres per
 
 ====>[Javadoc OpenClassRooms](https://openclassrooms.com/courses/presentation-de-la-javadoc)
 
+Pour Générer la Javadoc sous NetBeans : cliquez sur Run->Generate Javadoc (nom du projet).
+Cela ouvre une page internet avec la javadoc interprétée.
+
 Exemple : 
 
 ```
