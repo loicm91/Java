@@ -1,9 +1,9 @@
-#Glossaire :
+# Glossaire :
 
-##Class Main :
+## Class Main :
 La class principale qui ne possède qu'une méthode pour un nouveau projet.
 
-##Constructeur:
+## Constructeur:
 Le constructeur est une méthode d'instance qui va se charger de créer un objet et, 
 le cas échéant, d'initialiser ses variables de classe ! Cette méthode a pour rôle de signaler à la JVM (Java Virtual Machine) 
 qu'il faut réserver de la mémoire pour notre futur objet et donc, par extension, d'en réserver pour toutes ses variables.
@@ -39,7 +39,7 @@ public class Ville {
     nbreHabitants = pNbre;
   }        
 ```
-##Javadoc :
+## Javadoc :
 La Javadoc permet en commentant son code, de pouvoir le partager à d'autres personnes avec des instructions et des définitions qui facilitent la compréhension du programme/projet.
 
 ====>[Javadoc OpenClassRooms](https://openclassrooms.com/courses/presentation-de-la-javadoc)
